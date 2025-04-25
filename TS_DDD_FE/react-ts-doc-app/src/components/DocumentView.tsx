@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/DocumentView.module.css';
+import '../styles/DocumentView.module.css';
 import { fetchDocumentById } from '../services/documentService';
 import { Document } from '../types';
 
@@ -23,11 +23,12 @@ const DocumentView: React.FC<DocumentViewProps> = ({ documentId }) => {
         loadDocument();
     }, [documentId]);
 
-    if (error) return <p className={styles.error}>{error}</p>;
+    if (error) return <p className="error">{error}</p>;
     if (!document) return <p>Loading...</p>;
 
     return (
-        <div className={styles.view}>
+        <div className="view"
+        >
             <h2>{document.title}</h2>
             <p>{document.content}</p>
         </div>

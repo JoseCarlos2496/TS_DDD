@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/DocumentList.module.css';
+import '../styles/DocumentList.module.css'
 import { Document } from '../types';
 
 interface DocumentListProps {
@@ -8,7 +8,7 @@ interface DocumentListProps {
 }
 
 const DocumentList: React.FC<DocumentListProps> = ({ documents, onSelectDocument }) => (
-    <ul className={styles.list}>
+    <ul className="list">
         {documents.map((doc) => (
             <li key={doc.id} onClick={() => onSelectDocument(doc.id)}>
                 {doc.title}

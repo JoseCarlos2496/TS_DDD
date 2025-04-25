@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/DocumentForm.module.css';
+import '../styles/DocumentForm.module.css';
 import { createDocument } from '../services/documentService';
 
 interface DocumentFormProps {
@@ -25,9 +25,9 @@ const DocumentForm: React.FC<DocumentFormProps> = ({ onDocumentCreated }) => {
     };
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <h2>Create Document</h2>
-            {error && <p className={styles.error}>{error}</p>}
+            {error && <p className="error">{error}</p>}
             <div>
                 <label>Title:</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} required />
