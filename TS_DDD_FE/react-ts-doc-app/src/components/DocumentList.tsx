@@ -8,13 +8,15 @@ interface DocumentListProps {
 }
 
 const DocumentList: React.FC<DocumentListProps> = ({ documents, onSelectDocument }) => (
-    <ul className="list">
+    <div>
+    <ul className='ul'>
         {documents.map((doc) => (
-            <li key={doc.id} onClick={() => onSelectDocument(doc.id)}>
+            <li className='li' key={doc.id} onClick={() => onSelectDocument(doc.id)}>
                 {doc.title}
             </li>
         ))}
     </ul>
+    </div>
 );
 
 export default DocumentList;

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  backend:
+    image: backend:lastest # Nombre y etiqueta de la imagen
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000" # Mapea el puerto 500 del contenedor al puerto 5000 del host
+    volumes:
+      - .:/app # Sincroniza los archivos locales con el contenedor
+      - /app/node_modules # Evita conflictos con node_modules
+    environment:
+      - NODE_ENV=development

@@ -27,10 +27,9 @@ const DocumentView: React.FC<DocumentViewProps> = ({ documentId }) => {
     if (!document) return <p>Loading...</p>;
 
     return (
-        <div className="view"
-        >
-            <h2>{document.title}</h2>
-            <p>{document.content}</p>
+        <div className='view'>
+            <h2 className='h2'>{document.title}</h2>
+            <p className='p'>{document.content}</p>
         </div>
     );
 };

@@ -1,0 +1,18 @@
+services:
+  frontend:
+    image: frontend  
+    build: ./TS_DDD_FE/react-ts-doc-app .
+    ports:
+      - "3000:80"
+      
+  backend:
+    image: backend
+    build: ./TS_DDD_BE/ddd-rest-api .
+    ports:
+      - "5000:5000"
+
+  converter:
+    image: converter
+    build: ./TS_DDD_PY .
+    ports:
+      - "6000:6000"

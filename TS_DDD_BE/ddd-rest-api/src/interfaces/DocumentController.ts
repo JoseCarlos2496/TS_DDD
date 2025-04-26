@@ -4,17 +4,22 @@ import { DocumentService } from "../application/services/DocumentService";
 export class DocumentController {
     constructor(private documentService: DocumentService) {}
 
+
     async getAllDocuments(req: Request, res: Response): Promise<void> {
+        const origin = req.headers.origin || "http://localhost:3000"; 
+        res.setHeader("Access-Control-Allow-Origin", origin);
         const documents = await this.documentService.getAllDocuments();
         res.json(documents);
     }
 
     async getDocumentById(req: Request, res: Response): Promise<void> {
+        const origin = req.headers.origin || "http://localhost:3000";
+        res.setHeader("Access-Control-Allow-Origin", origin);
         const { id } = req.params;
         const document = await this.documentService.getDocumentById(id);
 
         if (!document) {
-            res.status(404).json({ message: "Document not found" });
+            res.status(404).json({ message: "Documento no encontrado" });
             return;
         }
 
@@ -22,10 +27,12 @@ export class DocumentController {
     }
 
     async createDocument(req: Request, res: Response): Promise<void> {
+        const origin = req.headers.origin || "http://localhost:3000";
+        res.setHeader("Access-Control-Allow-Origin", origin);
         const { title, content } = req.body;
 
         if (!title || !content) {
-            res.status(400).json({ message: "Title and content are required" });
+            res.status(400).json({ message: "Titulo y contenido son requeridos" });
             return;
         }
 

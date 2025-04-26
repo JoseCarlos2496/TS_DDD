@@ -11,7 +11,7 @@ const DocumentForm: React.FC<DocumentFormProps> = ({ onDocumentCreated }) => {
     const [content, setContent] = useState('');
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmitCreate = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await createDocument({ title, content });
@@ -24,19 +24,34 @@ const DocumentForm: React.FC<DocumentFormProps> = ({ onDocumentCreated }) => {
         }
     };
 
+    
+    // const handleSubmitConverter = async (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     try {
+    //         await converDocument({ title, content });
+    //         setTitle('');
+    //         setContent('');
+    //         setError(null);
+    //         onDocumentCreated();
+    //     } catch (err) {
+    //         setError((err as Error).message);
+    //     }
+    // };
+
     return (
-        <form className="form" onSubmit={handleSubmit}>
-            <h2>Create Document</h2>
-            {error && <p className="error">{error}</p>}
+        <form className='form' onSubmit={handleSubmitCreate}>
+            <h2 className='h2'>Crear Documento</h2>
+            {error && <p className='error'>{error}</p>}
             <div>
-                <label>Title:</label>
+                <label className='label'>Titulo:</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} required />
             </div>
             <div>
-                <label>Content:</label>
+                <label>Contenido:</label>
                 <textarea value={content} onChange={(e) => setContent(e.target.value)} required />
             </div>
-            <button type="submit">Create</button>
+            <button className='button' type="submit">Crear</button>
+            {/* <button className='button' type="submit" onSubmit={handleSubmitConverter}>Convertir</button> */}
         </form>
     );
 };

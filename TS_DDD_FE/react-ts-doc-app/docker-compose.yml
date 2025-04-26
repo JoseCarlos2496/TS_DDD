@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" # Mapea el puerto 80 del contenedor al puerto 3000 en tu máquina
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Opcional: Configuración personalizada de Nginx
